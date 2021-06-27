@@ -1,0 +1,44 @@
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+
+https://gvolpe.com/blog/gnome3-on-nixos/
+  https://cmacr.ae/post/2020-05-09-managing-firefox-on-macos-with-nix/
+  https://nixos.wiki/wiki/Firefox
+  https://nix-community.github.io/home-manager/options.html
+
+
+  https://nur.nix-community.org/repos/rycee/
+  https://rycee.net/posts/2017-07-02-manage-your-home-with-nix.html
+
+  https://www.privacy-handbuch.de/handbuch_21n.htm
+  https://gitlab.com/rycee/configurations/blob/master/user/firefox.nix
+
+
+  Configs:
+  https://github.com/rhoriguchi/nixos-setup/tree/master/configuration/devices
+  https://github.com/fufexan/dotfiles
+  https://github.com/Creator54/nixos
+
+  https://github.com/ksevelyar/idempotent-desktop
+  https://github.com/foldu/nixos-config/tree/master/profiles
+
+  https://cloud.tissot.de/gitea/benneti/nixos/src/branch/master/profiles
+
+  https://btwiusegentoo.github.io/nixconfig/#org7559f06
