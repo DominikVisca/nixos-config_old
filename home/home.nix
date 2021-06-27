@@ -24,6 +24,7 @@
       ./wm/gnome40.nix
     ];
 
+  # Allow unfree packages and import Nix User Repository (NUR)
   nixpkgs.config.allowUnfree = true; 
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
@@ -31,6 +32,20 @@
     };
   }; 
 
+  # GTK-Theming
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-dark-icons-gtk;
+    };
+    theme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-dark-gtk;
+    };
+  };
+
+  # Install user space software
   home.packages = with pkgs; [
     alacritty
     zoom-us
