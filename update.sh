@@ -16,3 +16,7 @@ sudo nixos-rebuild switch
 # Copy home manager files
 cp -r home/* $HOME/.config/nixpkgs/
 home-manager switch
+
+# Copy awesome dotfiles
+rm -rf $HOME/.config/awesome
+cp -r awesome/ $HOME/.config

@@ -37,6 +37,9 @@
     zoom-us
     signal-desktop
     vscodium
+    kitty
+    networkmanagerapplet
+    unzip
   ];
 
   # Configure git

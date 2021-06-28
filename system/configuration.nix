@@ -11,7 +11,8 @@
 
       # Desktop Environment/Window Manager
       #./graphical/kde.nix
-      ./graphical/gnome.nix
+      #./graphical/gnome.nix
+      ./graphical/awesome.nix
     ];
   
   # Localization
@@ -25,6 +26,7 @@
   };
 
   # Networking
+  networking.networkmanager.enable = true;
   networking.useDHCP = false;
 
   # Enable sound.
@@ -35,7 +37,7 @@
   users.users.dv = {
     isNormalUser = true;
     initialPassword = "dv_pass";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
   };
 
   # Allow unfree packages
