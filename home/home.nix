@@ -40,6 +40,7 @@
     kitty
     networkmanagerapplet
     unzip
+    rofi
   ];
 
   # Configure git
