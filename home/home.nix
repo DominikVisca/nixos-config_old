@@ -41,6 +41,7 @@
     networkmanagerapplet
     unzip
     rofi
+    acpi
   ];
 
   # Configure git

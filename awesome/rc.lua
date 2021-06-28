@@ -15,6 +15,10 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local helpers = require("helpers")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+-- Load Widgets
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+
 --local runonce = require("runonce")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -141,8 +145,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock()
 
 -- Tray menu
-tray = wibox.widget.systray()
-tray.visible = false
+--tray = wibox.widget.systray()
+--tray.visible = true
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -242,51 +246,35 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.focused,
-
-        widget_template = {
-          -- {
-          --  wibox.widget.base.make_widget(),
-          --  forced_height = 5,
-          --  id            = 'background_role',
-          --  widget        = wibox.container.background,
-          --},
-          {
-            {
-                id     = 'clienticon',
-                widget = awful.widget.clienticon,
-            },
-            margins = 5,
-            widget  = wibox.container.margin
-          },
-          nil,
-          layout = wibox.layout.align.vertical,
-        },
-        -- buttons = tasklist_buttons
-    }
+      screen  = s,
+      filter  = awful.widget.tasklist.filter.currenttags,
+      buttons = tasklist_buttons
+  }
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s , bg = beautiful.bg_normal})
 
-    s.systray = wibox.widget.systray()
-    s.systray.visible = false
+    --s.systray = wibox.widget.systray()
+    --s.systray.visible = true
 
     -- s.focused_window = ""
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-	expand = "none",
+	    expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
             s.mypromptbox,
         },
-        mytextclock,--s.mytasklist, -- Middle widget
+        --wibox.widget.systray(),
+        mytextclock, -- Middle widget
         { -- Right widgets
-	    layout = wibox.layout.fixed.horizontal,
-            s.systray,
+	        layout = wibox.layout.fixed.horizontal,
+            --s.systray,
+            battery_widget(),
+            wibox.widget.systray(),
             s.mytasklist,
             -- s.mylayoutbox,
         },
