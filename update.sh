@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # Define host
-HOSTFILE="zotac.nix"
+HOSTFILE="thinkpad-e580.nix"
 
 # Shows the output of every command
 set +x

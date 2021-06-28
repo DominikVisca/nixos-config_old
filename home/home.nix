@@ -21,7 +21,7 @@
 
   imports =
     [ 
-      ./wm/gnome40.nix
+      #./wm/gnome40.nix
     ];
 
   # Allow unfree packages and import Nix User Repository (NUR)
@@ -32,25 +32,11 @@
     };
   }; 
 
-  # GTK-Theming
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-dark-icons-gtk;
-    };
-    theme = {
-      name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-dark-gtk;
-    };
-  };
-
   # Install user space software
   home.packages = with pkgs; [
-    alacritty
     zoom-us
     signal-desktop
-    vscode
+    vscodium
   ];
 
   # Configure git

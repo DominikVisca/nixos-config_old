@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # Define host
-HOSTFILE="zotac.nix"
+HOSTFILE="thinkpad-e580.nix"
 
 # Copy configuration files
 sudo cp system/configuration.nix /etc/nixos/
