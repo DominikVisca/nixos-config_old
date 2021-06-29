@@ -24,6 +24,25 @@
       #./wm/gnome40.nix
     ];
 
+  # GTK Themes
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "nordic-polar";
+  #     package = pkgs.nordic-polar;
+  #   };
+  # };
+  
+  # Temporary because nordic theme's not working
+  gtk = {
+    enable = true;
+    font.name = "Victor Mono SemiBold 12";
+    theme = {
+      name = "SolArc-Dark";
+      package = pkgs.solarc-gtk-theme;
+    };
+  };
+
   # Allow unfree packages and import Nix User Repository (NUR)
   nixpkgs.config.allowUnfree = true; 
   nixpkgs.config.packageOverrides = pkgs: {
@@ -36,7 +55,6 @@
   home.packages = with pkgs; [
     zoom-us
     signal-desktop
-    vscodium
     kitty
     networkmanagerapplet
     unzip
@@ -52,8 +70,17 @@
     userName = "Dominik Visca";
   };
 
+  # Configure VSCodium
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.Nix
+    ];
+  };
+
   # Configure Firefox
-  programs.firefox.enable =  true;
+  programs.firefox.enable = true;
   programs.firefox.extensions = 
     with pkgs.nur.repos.rycee.firefox-addons; [
       darkreader
