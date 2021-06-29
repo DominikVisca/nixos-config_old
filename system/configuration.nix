@@ -30,8 +30,13 @@
   networking.useDHCP = false;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # User
   users.users.dv = {
@@ -54,7 +59,9 @@
     nerdfonts
   ];
 
+  # System-wide services
   services.acpid.enable = true;
+  services.avahi.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

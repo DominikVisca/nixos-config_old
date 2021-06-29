@@ -53,13 +53,22 @@
 
   # Install user space software
   home.packages = with pkgs; [
+    # cli/utility
+    unzip
+    acpi
+
+    # misc
     zoom-us
     signal-desktop
     kitty
-    networkmanagerapplet
-    unzip
+    
+    # wm
     rofi
-    acpi
+    
+    # Systray applets
+    networkmanagerapplet
+    pasystray
+    pavucontrol
   ];
 
   # Configure git
