@@ -251,34 +251,37 @@ awful.screen.connect_for_each_screen(function(s)
       buttons = tasklist_buttons
   }
 
-    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s , bg = beautiful.bg_normal})
+  ------------------
+  -- Wibox (Topbar)
+  ------------------
+  
+  -- Create the wibox
+  s.mywibox = awful.wibar({ position = "top", screen = s , bg = beautiful.bg_normal})
 
-    --s.systray = wibox.widget.systray()
-    --s.systray.visible = true
+  s.systray = wibox.widget.systray()
+  s.systray.visible = true
 
-    -- s.focused_window = ""
+  -- s.focused_window = ""
 
-    -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-	    expand = "none",
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        --wibox.widget.systray(),
-        mytextclock, -- Middle widget
-        { -- Right widgets
-	        layout = wibox.layout.fixed.horizontal,
-            --s.systray,
-            battery_widget(),
-            wibox.widget.systray(),
-            s.mytasklist,
-            -- s.mylayoutbox,
-        },
-    }
+  -- Add widgets to the wibox
+  s.mywibox:setup {
+    layout = wibox.layout.align.horizontal,
+	  expand = "none",
+    { -- Left widgets
+      layout = wibox.layout.fixed.horizontal,
+      s.mytaglist,
+      s.mypromptbox,
+    },
+    mytextclock, -- Middle widget
+    { -- Right widgets
+	    layout = wibox.layout.fixed.horizontal,      
+      --      wibox.widget.systray(),
+      s.mytasklist,
+      s.systray,
+      battery_widget(),
+      -- s.mylayoutbox,
+    },
+  }
 end)
 -- }}}
 
@@ -717,14 +720,4 @@ end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Custom commands
-
-
-if helpers.file_exists(gears.filesystem.get_configuration_dir().."reload.lck") then
-  os.remove(gears.filesystem.get_configuration_dir().."reload.lck")
-else
-  autostart('kitty', {'telegram-desktop', 'discord', 'firefox'}, {'env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U', '/usr/lib/xfce-polkit/xfce-polkit'})
-end
--- naughty.notify({title = "theme color for bar:", text = beautiful.tasklist_bg_normal})
---require("awful.autofocus")
-
+autostart('nm-applet', {}, {})
