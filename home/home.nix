@@ -63,7 +63,9 @@
   programs.firefox.profiles = {
     default = {
       isDefault = true;
-      settings = {           
+      settings = {
+        # Customizing
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         # Privacy settings
         ## Search engine
         ## Has to be changed manualle on first start

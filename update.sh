@@ -22,6 +22,15 @@ home-manager switch
 rm -rf $HOME/.config/awesome
 cp -r awesome/ $HOME/.config
 
+## firefox
+rm -rf $HOME/.mozilla/firefox/default/chrome
+cp -r dotfiles/firefox $HOME/.mozilla/firefox/default
+mv $HOME/.mozilla/firefox/default/firefox $HOME/.mozilla/firefox/default/chrome
+
+## kitty
+rm -rf $HOME/.config/kitty
+cp -r dotfiles/kitty/ $HOME/.config
+
 ## rofi
 rm -rf $HOME/.config/rofi
 cp -r dotfiles/rofi/ $HOME/.config
