@@ -20,3 +20,7 @@ home-manager switch
 # Copy awesome dotfiles
 rm -rf $HOME/.config/awesome
 cp -r awesome/ $HOME/.config
+
+# Copy rofi dotfiles
+rm -rf $HOME/.config/rofi
+cp -r dotfiles/rofi/ $HOME/.config

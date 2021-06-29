@@ -15,7 +15,9 @@
 
   # Network
   networking.hostName = "ucuri";
-  networking.networkmanager.enable = true;
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
+
+  # Touchpad-Support
+  services.xserver.libinput.enable = true;
 }
