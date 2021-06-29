@@ -17,10 +17,15 @@ sudo nixos-rebuild switch
 cp -r home/* $HOME/.config/nixpkgs/
 home-manager switch
 
-# Copy awesome dotfiles
+# Copy dotfiles
+# awesome
 rm -rf $HOME/.config/awesome
 cp -r awesome/ $HOME/.config
 
-# Copy rofi dotfiles
+## rofi
 rm -rf $HOME/.config/rofi
 cp -r dotfiles/rofi/ $HOME/.config
+
+## assets
+rm -rf $HOME/.config/assets
+cp -r assets/ $HOME/.config
