@@ -11,8 +11,8 @@
 
       # Desktop Environment/Window Manager
       #./graphical/kde.nix
-      #./graphical/gnome.nix
-      ./graphical/awesome.nix
+      ./graphical/gnome.nix
+      #./graphical/awesome.nix
     ];
   
   # Localization
